@@ -40,7 +40,7 @@ namespace DemoLibrary
                 if (backupAccount != null)
                 {
                     // Checks to see if we have enough money in the backup account
-                    if ((backupAccount.Balance + Balance) > amount)
+                    if ((backupAccount.Balance + Balance) >= amount)
                     {
                         // We have enough backup funds so transfar the amount to this account
                         // and then complete the transaction.
