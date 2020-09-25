@@ -34,6 +34,7 @@
             this.amountLabel = new System.Windows.Forms.Label();
             this.amountValue = new System.Windows.Forms.NumericUpDown();
             this.makePurchaseButton = new System.Windows.Forms.Button();
+            this.errorMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.amountValue)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,11 +99,24 @@
             this.makePurchaseButton.UseVisualStyleBackColor = true;
             this.makePurchaseButton.Click += new System.EventHandler(this.makePurchaseButton_Click);
             // 
+            // errorMessage
+            // 
+            this.errorMessage.AutoSize = true;
+            this.errorMessage.ForeColor = System.Drawing.Color.Red;
+            this.errorMessage.Location = new System.Drawing.Point(76, 362);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(236, 29);
+            this.errorMessage.TabIndex = 13;
+            this.errorMessage.Text = "You are overdrafting!";
+            this.errorMessage.Visible = false;
+            this.errorMessage.Click += new System.EventHandler(this.errorMessage_Click);
+            // 
             // Transactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 355);
+            this.ClientSize = new System.Drawing.Size(422, 422);
+            this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.makePurchaseButton);
             this.Controls.Add(this.amountValue);
             this.Controls.Add(this.amountLabel);
@@ -128,5 +142,6 @@
         private System.Windows.Forms.Label amountLabel;
         private System.Windows.Forms.NumericUpDown amountValue;
         private System.Windows.Forms.Button makePurchaseButton;
+        private System.Windows.Forms.Label errorMessage;
     }
 }
