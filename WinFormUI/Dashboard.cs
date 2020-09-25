@@ -53,7 +53,7 @@ namespace WinFormUI
         private void CheckingAccount_OverdraftEvent(object sender, OverdraftEventArgs e)
         {
             errorMessage.Text = $"You had an overdraft protection transfer of {string.Format("{0:C2}", e.AmountOverdrafted)}";
-            e.CancelTransaction = denyOverdraft.Checked;
+            e.CancelTransaction = denyOverdraft.Checked; // Change a property based on a UI control setting
             errorMessage.Visible = true;
         }
 
