@@ -53,7 +53,6 @@ namespace WinFormUI
         private void CheckingAccount_OverdraftEvent(object sender, OverdraftEventArgs e)
         {
             errorMessage.Text = $"You had an overdraft protection transfer of {string.Format("{0:C2}", e.AmountOverdrafted)}";
-            e.AmountOverdrafted = 1020.40M; // If you can do this - it's very very bad!
             errorMessage.Visible = true;
         }
 

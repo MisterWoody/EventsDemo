@@ -8,13 +8,13 @@ namespace DemoLibrary
 {
     public class OverdraftEventArgs : EventArgs
     {
-        public decimal AmountOverdrafted { get; set; }
-        public string MoreInfo { get; set; }
+        public decimal AmountOverdrafted { get; private set; }
+        public string MoreInfo { get; private set; }
 
-        //public OverdraftEventArgs(decimal amountOverdrafted, string moreInfo)
-        //{
-        //    AmountOverdrafted = amountOverdrafted;
-        //    MoreInfo = moreInfo;
-        //}
+        public OverdraftEventArgs(decimal amountOverdrafted, string moreInfo)
+        {
+            AmountOverdrafted = amountOverdrafted;
+            MoreInfo = moreInfo;
+        }
     }
 }

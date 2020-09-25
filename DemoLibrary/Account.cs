@@ -64,7 +64,7 @@ namespace DemoLibrary
                         _transactions.Add($"Withdrew { string.Format("{0:C2}", amount) } for { paymentName }");
                         Balance -= amount;
                         TransactionApprovedEvent?.Invoke(this, paymentName);
-                        OverdraftEvent?.Invoke(this, new OverdraftEventArgs { AmountOverdrafted = amountNeeded, MoreInfo = "Extra info" });
+                        OverdraftEvent?.Invoke(this, new OverdraftEventArgs(amountNeeded, "Extra info"));
                         return true;
                     }
                     else
