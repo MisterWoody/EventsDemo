@@ -47,9 +47,18 @@ namespace DemoLibrary
                     // Checks to see if we have enough money in the backup account
                     if ((backupAccount.Balance + Balance) >= amount)
                     {
+                        
                         // We have enough backup funds so transfar the amount to this account
                         // and then complete the transaction.
                         decimal amountNeeded = amount - Balance;
+                        OverdraftEventArgs args = new OverdraftEventArgs(amountNeeded, "Extra info");
+                        OverdraftEvent?.Invoke(this, args);
+
+                        if (args.CancelTransaction == true)
+                        {
+                            return false;
+                        }
+
                         bool overdraftSucceeded = backupAccount.MakePayment("Overdraft Protection", amountNeeded);
 
                         // This should always be true but we will check anyway
@@ -64,7 +73,7 @@ namespace DemoLibrary
                         _transactions.Add($"Withdrew { string.Format("{0:C2}", amount) } for { paymentName }");
                         Balance -= amount;
                         TransactionApprovedEvent?.Invoke(this, paymentName);
-                        OverdraftEvent?.Invoke(this, new OverdraftEventArgs(amountNeeded, "Extra info"));
+                        
                         return true;
                     }
                     else
